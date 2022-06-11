@@ -12,3 +12,21 @@
  * 
  */
 
+const $charForm = $('#newCharForm');
+const $charStorage = $('#charStorage');
+
+$charForm.on("submit", function(e){
+    e.preventDefault();
+
+    //pull the character name
+    let charName = $("#nameInput").val();
+    // clear the input
+    $("#nameInput").val("");
+
+    displayChar(charName);
+});
+
+function displayChar(charName){
+    let character = $("<p></p>").text(charName);
+    $charStorage.append(character);
+}
